@@ -1,0 +1,20 @@
+def cadenap(cad):
+    pi = []
+    pa = {'{': '}', '(': ')', '[': ']'}
+
+    for c in cad:
+        if c in pa:
+            pi.append(c)
+        elif len(pi) == 0 or c != pa[pi.pop()]:
+            return False
+    
+    return len(pi) == 0
+
+
+print(cadenap('()'))
+print(cadenap('()()()()()()()()()'))
+print(cadenap('([])[]()'))
+print(cadenap(')'))
+print(cadenap('()['))
+print(cadenap('(([))]'))
+print(cadenap('((((((((((((((((((((((((((((((((('))
